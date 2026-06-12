@@ -1,0 +1,13 @@
+.array-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 400px;
+  margin-top: 50px;
+}
+
+.array-bar {
+  width: 12px;
+  margin: 0 2px;
+  background-color: cyan;
+}
