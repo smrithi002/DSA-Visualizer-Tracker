@@ -7,6 +7,13 @@ function App() {
   const [currentBars, setCurrentBars] = useState([]);
   const [speed, setSpeed] = useState(300);
   const [arraySize, setArraySize] = useState(10);
+  const [algorithmInfo, setAlgorithmInfo] = useState({
+  name: "None",
+  best: "-",
+  average: "-",
+  worst: "-",
+  space: "-"
+});
 
   const generateArray = () => {
     const temp = [];
@@ -31,6 +38,13 @@ function App() {
   };
 
   const bubbleSort = async () => {
+    setAlgorithmInfo({
+  name: "Bubble Sort",
+  best: "O(n)",
+  average: "O(n²)",
+  worst: "O(n²)",
+  space: "O(1)"
+});
     setSorting(true);
 
     let arr = [...array];
@@ -55,6 +69,13 @@ function App() {
   };
 
   const selectionSort = async () => {
+    setAlgorithmInfo({
+  name: "Selection Sort",
+  best: "O(n²)",
+  average: "O(n²)",
+  worst: "O(n²)",
+  space: "O(1)"
+});
     setSorting(true);
 
     let arr = [...array];
@@ -87,6 +108,13 @@ function App() {
   };
 
   const insertionSort = async () => {
+    setAlgorithmInfo({
+  name: "Insertion Sort",
+  best: "O(n)",
+  average: "O(n²)",
+  worst: "O(n²)",
+  space: "O(1)"
+});
     setSorting(true);
 
     let arr = [...array];
@@ -170,7 +198,27 @@ function App() {
             <span> {arraySize}</span>
           </div>
         </div>
+<div
+  style={{
+    marginTop: "30px",
+    padding: "20px",
+    border: "1px solid white",
+    borderRadius: "10px",
+    width: "300px",
+    marginLeft: "auto",
+    marginRight: "auto",
+  }}
+>
+  <h3>{algorithmInfo.name}</h3>
 
+  <p>Best Case: {algorithmInfo.best}</p>
+
+  <p>Average Case: {algorithmInfo.average}</p>
+
+  <p>Worst Case: {algorithmInfo.worst}</p>
+
+  <p>Space Complexity: {algorithmInfo.space}</p>
+</div>
         <div className="array-container">
           {array.map((value, index) => (
             <div
