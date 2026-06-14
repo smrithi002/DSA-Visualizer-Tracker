@@ -45,7 +45,6 @@ function App() {
           arr[j + 1] = temp;
 
           setArray([...arr]);
-
           await sleep(speed);
         }
       }
@@ -79,9 +78,38 @@ function App() {
         arr[minIndex] = temp;
 
         setArray([...arr]);
-
         await sleep(speed);
       }
+    }
+
+    setCurrentBars([]);
+    setSorting(false);
+  };
+
+  const insertionSort = async () => {
+    setSorting(true);
+
+    let arr = [...array];
+
+    for (let i = 1; i < arr.length; i++) {
+      let key = arr[i];
+      let j = i - 1;
+
+      while (j >= 0 && arr[j] > key) {
+        setCurrentBars([j, j + 1]);
+
+        arr[j + 1] = arr[j];
+
+        setArray([...arr]);
+        await sleep(speed);
+
+        j--;
+      }
+
+      arr[j + 1] = key;
+
+      setArray([...arr]);
+      await sleep(speed);
     }
 
     setCurrentBars([]);
@@ -108,6 +136,10 @@ function App() {
 
           <button onClick={selectionSort} disabled={sorting}>
             Selection Sort
+          </button>
+
+          <button onClick={insertionSort} disabled={sorting}>
+            Insertion Sort
           </button>
 
           <div style={{ marginTop: "20px" }}>
