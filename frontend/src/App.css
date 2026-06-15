@@ -2,12 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 400px;
+
+  min-height: 450px;
+
   margin-top: 50px;
+  margin-bottom: 100px;
+
+  width: 100%;
+
+  gap: 15px; /* space between bars */
 }
 
 .array-bar {
-  width: 12px;
-  margin: 0 2px;
+  width: 35px;
   background-color: cyan;
 }
