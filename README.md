@@ -13,58 +13,58 @@ ALGORITHMS IMPLEMENTED
 
 a)SORTING ALGORITHMS
 
-Bubble Sort
+>Bubble Sort
 
-Selection Sort
+>Selection Sort
 
-Insertion Sort
+>Insertion Sort
 
-Merge Sort
+>Merge Sort
 
-Quick Sort
+>Quick Sort
 
 
 b)SEARCHING ALGORITHMS
 
-Linear Search
+>Linear Search
 
-Binary Search
+>Binary Search
 
 
 FEATURES
 
-Algorithm visualization using animated bars
+>Algorithm visualization using animated bars
 
-Complexity analysis panel
+>Complexity analysis panel
 
-Execution time measurement
+>Execution time measurement
 
-Search result highlighting
+>Search result highlighting
 
-Progress tracking dashboard
+>Progress tracking dashboard
 
-Progress completion bar
+>Progress completion bar
 
-Reset progress option
+>Reset progress option
 
-Local storage support
+>Local storage support
 
-Adjustable array size
+>Adjustable array size
 
-Adjustable animation speed
+>Adjustable animation speed
 
 
 
 
 TECHNOLOGIES USED
 
-React.js
+>React.js
 
-Vite
+>Vite
 
-JavaScript
+>JavaScript
 
-CSS
+>CSS
 
 
 
@@ -97,26 +97,26 @@ src
 
 RUNNING THE PROJECT
 
-git clone https://github.com/smrithi002/DSA-Visualizer-Tracker.git
+>git clone https://github.com/smrithi002/DSA-Visualizer-Tracker.git
 
-cd frontend
+>cd frontend
 
-npm install
+>npm install
 
-npm run dev
+>npm run dev
 
 
 
 
 FUTURE ENHANCEMENTS
 
-Heap Sort Visualization
+>Heap Sort Visualization
 
-Graph Algorithms
+>Graph Algorithms
 
-Pathfinding Visualizer
+>Pathfinding Visualizer
 
-Improved User Interface
+>Improved User Interface
 
 
 Pathfinding Visualizer
