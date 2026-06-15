@@ -143,6 +143,75 @@ function App() {
     setCurrentBars([]);
     setSorting(false);
   };
+  const merge = async (arr, left, mid, right) => {
+  let leftArr = arr.slice(left, mid + 1);
+  let rightArr = arr.slice(mid + 1, right + 1);
+
+  let i = 0;
+  let j = 0;
+  let k = left;
+
+  while (i < leftArr.length && j < rightArr.length) {
+    setCurrentBars([k]);
+
+    if (leftArr[i] <= rightArr[j]) {
+      arr[k] = leftArr[i];
+      i++;
+    } else {
+      arr[k] = rightArr[j];
+      j++;
+    }
+
+    setArray([...arr]);
+    await sleep(speed);
+    k++;
+  }
+
+  while (i < leftArr.length) {
+    arr[k] = leftArr[i];
+    i++;
+    k++;
+
+    setArray([...arr]);
+    await sleep(speed);
+  }
+
+  while (j < rightArr.length) {
+    arr[k] = rightArr[j];
+    j++;
+    k++;
+
+    setArray([...arr]);
+    await sleep(speed);
+  }
+};
+const mergeSortHelper = async (arr, left, right) => {
+  if (left >= right) return;
+
+  const mid = Math.floor((left + right) / 2);
+
+  await mergeSortHelper(arr, left, mid);
+  await mergeSortHelper(arr, mid + 1, right);
+
+  await merge(arr, left, mid, right);
+};const mergeSort = async () => {
+  setAlgorithmInfo({
+    name: "Merge Sort",
+    best: "O(n log n)",
+    average: "O(n log n)",
+    worst: "O(n log n)",
+    space: "O(n)"
+  });
+
+  setSorting(true);
+
+  let arr = [...array];
+
+  await mergeSortHelper(arr, 0, arr.length - 1);
+
+  setCurrentBars([]);
+  setSorting(false);
+};
 
   return (
     <div className="app">
@@ -169,6 +238,9 @@ function App() {
           <button onClick={insertionSort} disabled={sorting}>
             Insertion Sort
           </button>
+          <button onClick={mergeSort} disabled={sorting}>
+  Merge Sort
+</button>
 
           <div style={{ marginTop: "20px" }}>
             <label>Speed: </label>
