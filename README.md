@@ -1,13 +1,14 @@
-DSA Visualizer & Tracker
-About the Project
+DSA VISUALISER AND TRACKER
+
+ABOUT THE PROJECT
 This project is a web-based application developed using React and Vite to visualize popular sorting and searching algorithms.
 
 The goal of the project is to make algorithm learning more interactive by showing step-by-step execution through animations while also displaying complexity information and execution time.
 
 
-#Algorithms Implemented
+ALGORITHMS IMPLEMENTED
 
-a)Sorting Algorithms
+a)SORTING ALGORITHMS
 
 Bubble Sort
 
@@ -20,14 +21,14 @@ Merge Sort
 Quick Sort
 
 
-b)Searching Algorithms
+b)SEARCHING ALGORITHMS
 
 Linear Search
 
 Binary Search
 
 
-Features
+FEATURES
 
 Algorithm visualization using animated bars
 
@@ -50,7 +51,7 @@ Adjustable array size
 Adjustable animation speed
 
 
-Technologies Used
+TECHNOLOGIES USED
 
 React.js
 
@@ -61,21 +62,31 @@ JavaScript
 CSS
 
 
-Project Structure
+PROJECT STRUCTURE
+
 src
+
 │
 ├── components
+
 │   ├── Navbar.jsx
+
 │   ├── ComplexityPanel.jsx
+
 │   ├── PerformancePanel.jsx
+
 │   └── Tracker.jsx
+
 │
 ├── App.jsx
+
 ├── App.css
+
 └── main.jsx
 
 
-Running the Project
+
+RUNNING THE PROJECT
 
 git clone https://github.com/smrithi002/DSA-Visualizer-Tracker.git
 
@@ -86,7 +97,7 @@ npm install
 npm run dev
 
 
-Future Enhancements
+FUTURE ENHANCEMENTS
 
 Heap Sort Visualization
 
