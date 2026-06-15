@@ -118,6 +118,5 @@ FUTURE ENHANCEMENTS
 
 >Improved User Interface
 
+>Pathfinding Visualizer
 
-Pathfinding Visualizer
-Improved User Interface
