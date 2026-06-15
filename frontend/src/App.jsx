@@ -194,7 +194,8 @@ const mergeSortHelper = async (arr, left, right) => {
   await mergeSortHelper(arr, mid + 1, right);
 
   await merge(arr, left, mid, right);
-};const mergeSort = async () => {
+};
+const mergeSort = async () => {
   setAlgorithmInfo({
     name: "Merge Sort",
     best: "O(n log n)",
@@ -210,6 +211,63 @@ const mergeSortHelper = async (arr, left, right) => {
   await mergeSortHelper(arr, 0, arr.length - 1);
 
   setCurrentBars([]);
+  setSorting(false);
+};
+const partition = async (arr, low, high) => {
+  const pivot = arr[high];
+
+  let i = low - 1;
+
+  for (let j = low; j < high; j++) {
+    setCurrentBars([j, high]);
+
+    await sleep(speed);
+
+    if (arr[j] < pivot) {
+      i++;
+
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+
+      setArray([...arr]);
+
+      await sleep(speed);
+    }
+  }
+
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+
+  setArray([...arr]);
+
+  await sleep(speed);
+
+  return i + 1;
+};
+const quickSortHelper = async (arr, low, high) => {
+  if (low < high) {
+    const pi = await partition(arr, low, high);
+
+    await quickSortHelper(arr, low, pi - 1);
+
+    await quickSortHelper(arr, pi + 1, high);
+  }
+};
+const quickSort = async () => {
+  setAlgorithmInfo({
+    name: "Quick Sort",
+    best: "O(n log n)",
+    average: "O(n log n)",
+    worst: "O(n²)",
+    space: "O(log n)"
+  });
+
+  setSorting(true);
+
+  let arr = [...array];
+
+  await quickSortHelper(arr, 0, arr.length - 1);
+
+  setCurrentBars([]);
+
   setSorting(false);
 };
 
@@ -240,6 +298,9 @@ const mergeSortHelper = async (arr, left, right) => {
           </button>
           <button onClick={mergeSort} disabled={sorting}>
   Merge Sort
+</button>
+<button onClick={quickSort} disabled={sorting}>
+  Quick Sort
 </button>
 
           <div style={{ marginTop: "20px" }}>
