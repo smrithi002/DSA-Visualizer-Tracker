@@ -1,4 +1,7 @@
 import Navbar from "./components/Navbar";
+import ComplexityPanel from "./components/ComplexityPanel";
+import PerformancePanel from "./components/PerformancePanel";
+import Tracker from "./components/Tracker";
 import "./App.css";
 
 import { useState, useEffect } from "react";
@@ -434,49 +437,12 @@ const binarySearch = async () => {
         <h1>Sorting Visualizer</h1>
         
 {activePage === "tracker" ? (
-  <div>
-    <h2>Algorithms Completed</h2>
-
-    {completedAlgorithms.map((algo, index) => (
-      <p key={index}>✓ {algo}</p>
-    ))}
-
-    <h3>Progress: {completedAlgorithms.length}/7</h3>
-
-<div
-  style={{
-    width: "300px",
-    height: "25px",
-    backgroundColor: "#444",
-    borderRadius: "20px",
-    margin: "20px auto",
-    overflow: "hidden",
-  }}
->
-  <div
-    style={{
-      width: `${(completedAlgorithms.length / 7) * 100}%`,
-      height: "100%",
-      backgroundColor: "limegreen",
-      transition: "0.5s",
-    }}
+  <Tracker
+    completedAlgorithms={completedAlgorithms}
+    setCompletedAlgorithms={
+      setCompletedAlgorithms
+    }
   />
-</div>
-
-<h3>
-  {Math.round(
-    (completedAlgorithms.length / 7) * 100
-  )}% Complete
-</h3>
-<button
-  onClick={() => {
-    localStorage.removeItem("completedAlgorithms");
-    setCompletedAlgorithms([]);
-  }}
->
-  Reset Progress
-</button>
-  </div>
 ) : (
   <>
     <div>
@@ -533,37 +499,8 @@ const binarySearch = async () => {
       </div>
     </div>
 
-    <div
-      style={{
-        marginTop: "30px",
-        padding: "20px",
-        border: "1px solid white",
-        borderRadius: "10px",
-        width: "300px",
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-    >
-      <h3>{algorithmInfo.name}</h3>
-      <p>Best Case: {algorithmInfo.best}</p>
-      <p>Average Case: {algorithmInfo.average}</p>
-      <p>Worst Case: {algorithmInfo.worst}</p>
-      <p>Space Complexity: {algorithmInfo.space}</p>
-    </div>
-    <div
-  style={{
-    marginTop: "20px",
-    padding: "20px",
-    border: "1px solid white",
-    borderRadius: "10px",
-    width: "300px",
-    marginLeft: "auto",
-    marginRight: "auto",
-  }}
->
-  <h3>Performance</h3>
-  <p>Execution Time: {executionTime}</p>
-</div>
+   <ComplexityPanel algorithmInfo={algorithmInfo} />
+    <PerformancePanel executionTime={executionTime} />
 <div style={{ marginTop: "20px" }}>
   <input
     type="number"
